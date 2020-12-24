@@ -7,6 +7,10 @@ ATank* ATankAIController::GetControlledTank() const {
 	return Cast<ATank>(GetPawn());
 };
 
+ATank* ATankAIController::GetPlayerTank() const {
+	return Cast<ATank>(GetWorld()->GetFirstPlayerController()->GetPawn());
+};
+
 void ATankAIController::BeginPlay() {
 	Super::BeginPlay();
 	auto ControlledTank = GetControlledTank();
@@ -27,6 +31,3 @@ void ATankAIController::BeginPlay() {
 	}
 }
 
-ATank* ATankAIController::GetPlayerTank() const {
-	return Cast<ATank>(GetWorld()->GetFirstPlayerController()->GetPawn());
-};
